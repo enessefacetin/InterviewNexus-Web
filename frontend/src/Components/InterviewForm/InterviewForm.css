@@ -1,57 +1,122 @@
 /* src/components/AddInterview.css */
 .interview-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .interview-form label {
-    font-weight: bold;
-  }
-  
-  .interview-form input[type="text"],
-  .interview-form input[type="number"],
-  .interview-form input[type="date"],
-  .interview-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .interview-form button {
-    padding: 10px;
-    background-color: #0c9cb1;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: 500;
-  }
-  
-  .interview-form button:hover {
-    background-color: #098c96;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px; /* Increased for a more spacious layout */
+  margin: 20px auto; /* Added top and bottom margin for better spacing from viewport edges */
+  padding: 25px;
+  background-color: #fff; /* Adding a background color for contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 10px; /* Rounded corners for a modern look */
+}
 
-  .date-picker {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    color: #5c5c5c;
-  }
+.form-sections {
+  display: flex;
+  gap: 80px; /* Adjusted gap for balanced spacing */
+}
 
-  .react-datepicker-wrapper, .react-datepicker__input-container {
+.form-general-info, .form-questions {
+  flex: 1;
+}
+.form-general-info{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.interview-form label {
+  font-weight: bold;
+  margin-bottom: 8px; /* Adjusted for clearer separation from input */
+  display: block; /* Ensures the label takes its own line */
+  color: #626262; /* Darker for better readability */
+}
+
+/* Unified input, select, and textarea styles for consistency */
+.interview-form input[type="text"],
+.interview-form input[type="number"],
+.interview-form textarea,
+.date-picker,
+.react-select__control,
+.react-select__value-container {
+  width: 100%;
+  padding: 12px; /* Increased padding for better touch area and readability */
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 2px solid #e2e2e2; /* Lighter border for subtlety */
+  font-size: 16px; /* Standard font size for readability */
+  color: #333; /* Darker text for contrast */
+}
+
+/* Enhanced react-select styles */
+.react-select__control {
+  border-color: #e2e2e2 !important; /* Ensures consistency with other inputs */
+  box-shadow: none !important; /* Removes focus shadow to match other inputs */
+}
+
+.react-select__menu {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.react-select__option--is-selected, .react-select__option--is-focused {
+  background-color: #0c9cb1 !important;
+  color: white !important;
+}
+
+/* Button styles with transition for smooth color change */
+.interview-form button {
+  padding: 12px 20px;
+  background-color: #0c9cb1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.interview-form button:hover {
+  background-color: #098c96;
+}
+
+/* Question item styles */
+.question-item {
+  display: flex;
+  gap: 15px; /* Increased gap for clarity */
+  align-items: center;
+  background-color: #f9f9f9; /* Light background for visual grouping */
+  padding: 10px;
+  border-radius: 8px; /* Rounded corners for consistency */
+}
+
+.question-item button[name="remove"] {
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for visual feedback */
+}
+
+.question-item button[name="remove"]:hover {
+  background-color: #c5372f; /* Darker on hover for interaction feedback */
+}
+
+/* Adjustments for the DatePicker component */
+.react-datepicker-wrapper, .react-datepicker__input-container {
   width: 100%;
 }
-  .react-datepicker {
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
+
+/* Additional styles for DatePicker to match form aesthetics */
+.react-datepicker {
+  border-radius: 8px;
+}
+
+/* Ensuring the submit button visually stands out */
+.submit-btn {
+  align-self: center; /* Centering the button for better visual alignment */
+  width: auto; /* Auto width to fit content */
+  padding: 12px 40px; /* More horizontal padding for a wider button */
+}

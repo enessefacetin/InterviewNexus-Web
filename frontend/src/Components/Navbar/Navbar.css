@@ -34,8 +34,8 @@
     justify-content: center;
     gap: 5px;
     cursor: pointer;
+    color: #626262;
 }
-
 
 .nav-menu hr{
     border: none;
@@ -45,10 +45,11 @@
     background-color: #0c9cb1;
 }
 
-.nav-login {
+
+.nav-login, .nav-profile{
     display: flex;
     align-items: center;
-    gap: 45px;
+    gap: 20px;
 }
 
 .nav-login button{
@@ -60,8 +61,19 @@
     font-size: 1.2rem;
     font-weight: 500;
     cursor: pointer;
+    transition: background-color 0.2s ease; /* Smooth background color transition on hover */
 }
 
 .nav-login button:active{
     background-color: #15242a;
 }
+
+.nav-login button:hover {
+    background-color: #098c96; /* Slightly darker on hover for feedback */
+  }
+
+  .nav-profile span {
+    font-size: 1.2rem; /* Ensures consistent font size with the rest of the navbar */
+    color: #171717; /* Text color for visibility */
+    margin-left: 8px; /* Adds a little space between icon and text */
+  }

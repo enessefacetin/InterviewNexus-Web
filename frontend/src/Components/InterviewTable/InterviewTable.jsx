@@ -1,7 +1,6 @@
 import React,{ useMemo } from 'react'
 import './InterviewTable.css'
 import { useTable, useSortBy, useFilters } from 'react-table';
-import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
@@ -65,7 +64,6 @@ function DefaultColumnFilter({
         accessor: 'interviewDate',
         disableFilters: true,
         disableSortBy: true,
-        Cell: ({ value }) => moment(value).format('MMMM DD, YYYY'),
       },
       {
         Header: 'Actions',
@@ -100,7 +98,7 @@ function DefaultColumnFilter({
   
     return (
         <div className="table-container">
-        <h2 className="table-title">Son Eklenen Mülakatlar</h2>
+        <h2 className="table-title">Son Eklenen 10 Mülakat</h2>
         <table {...getTableProps()} className="table">
           <thead>
             {headerGroups.map(headerGroup => (
