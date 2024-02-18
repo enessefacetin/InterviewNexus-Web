@@ -1,0 +1,54 @@
+.interview-detail-container {
+    display: flex;
+    flex-direction: row; /* Aligns children side by side */
+    justify-content: space-between;
+    gap: 20px; /* Adds some space between the summary and questions */
+    max-width: 1200px; /* Adjust based on your preference */
+    margin: auto;
+    padding: 20px;
+  }
+
+  .interview-summary, .interview-questions {
+    flex: 1; /* Allows both sections to grow and fill the container evenly */
+  }
+
+  .interview-questions {
+    max-width: 60%; /* Gives more space to questions, adjust as needed */
+  }
+
+  .interview-summary {
+    max-width: 40%; /* Adjust as needed */
+  }
+  
+  .interview-detail-container h1, .interview-detail-container h4 {
+    color: #0c9cb1; /* Teal for headings */
+  }
+  
+  .interview-detail-container p {
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #626262; /* Medium gray for paragraph text */
+  }
+
+  .interview-detail-container ul {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0;
+  }
+  
+  .interview-detail-container li {
+    margin-bottom: 20px; /* Adds space between questions */
+  }
+  
+  .interview-detail-container li p {
+    margin: 5px 0; /* Reduces margin around questions and answers for compact display */
+  }
+
+  @media (max-width: 768px) {
+    .interview-detail-container {
+      flex-direction: column; /* Stack vertically on small screens */
+    }
+  
+    .interview-summary, .interview-questions {
+      max-width: 100%; /* Allows sections to fill the container */
+    }
+  }

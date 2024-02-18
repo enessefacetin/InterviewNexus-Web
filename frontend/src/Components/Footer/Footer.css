@@ -1,0 +1,48 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Reduced gap for a more compact layout */
+    background-color: #15242a; /* Deep dark blue from your color palette */
+    color: #fff; /* White text color */
+    text-align: center;
+    padding: 10px 20px; /* Reduced padding for a smaller footer */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-links {
+    display: flex;
+    list-style: none;
+    padding: 0; /* Removes default padding */
+    gap: 30px;
+    color: #0c9cb1; /* Teal color for links to match your palette */
+    font-size: 1rem; /* Uniform font size for simplicity and readability */
+  }
+  
+  .footer-links li {
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .footer-links li:hover {
+    color: #fff; /* Changes color on hover for better interaction feedback */
+  }
+  
+  .footer-links a {
+    color: inherit; /* Ensures links use the parent's text color */
+    text-decoration: none; /* Removes underline from links */
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline; /* Adds underline on hover for clarity */
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 5px; /* Adds a bit more space above the copyright text */
+  }
+  

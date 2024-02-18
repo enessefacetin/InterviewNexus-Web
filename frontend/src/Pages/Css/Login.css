@@ -1,0 +1,88 @@
+.login {
+    width: 100%;
+    height: 80vh;
+    background-color: #e4dce4; /* Soft background color */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the form vertically and horizontally */
+  }
+  
+  .login-container {
+    width: 100%;
+    max-width: 580px; /* Ensures responsiveness */
+    height: auto; /* Adjusts height based on content */
+    margin: auto;
+    padding: 40px 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns children (fields and button) to the center */
+  }
+  
+  .login-container h1 {
+    color: #15242a; /* Deep dark blue for heading to match palette */
+    margin: 0 0 20px; /* Reduced bottom margin */
+  }
+  
+  .login-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%; /* Ensures fields span the container width */
+  }
+  
+  .login-fields input {
+    height: 48px; /* More standard input field height */
+    padding: 0 20px; /* Corrected padding */
+    border: 2px solid #0c9cb1; /* Teal border for focus */
+    outline: none;
+    border-radius: 5px;
+    color: #5c5c5c; /* Text color */
+    font-size: 18px;
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+  }
+  
+  .login-fields input:focus {
+    border-color: #15242a; /* Deep dark blue on focus */
+  }
+  
+  .login-container button {
+    margin-top: 20px;
+    height: 48px; /* Adjusted to a more standard button height */
+    width: 100%; /* Button width matches input fields */
+    border-radius: 5px;
+    background-color: #0c9cb1; /* Teal background */
+    color: #fff;
+    font-size: 20px; /* Slightly reduced font size for button */
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-container button:hover {
+    background-color: #098c96; /* Slightly darker teal on hover */
+  }
+  
+  .login-signup {
+    color: #5c5c5c; /* Consistent text color */
+    font-size: 16px; /* Slightly reduced for subtlety */
+    font-weight: 500;
+  }
+  
+  .login-signup span {
+    color: #0c9cb1; /* Teal color for interactive elements */
+    cursor: pointer;
+  }
+  
+  .login-signup span:hover{
+    color: #098c96; /* Darker teal on hover for visual feedback */
+  }
+
+  .error-message {
+    color: red;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px 0;
+  }

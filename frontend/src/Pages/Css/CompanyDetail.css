@@ -1,0 +1,33 @@
+.company-detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .company-info, .company-interviews {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .company-interviews ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .company-interviews li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+  }
+  
+  .company-interviews li:hover {
+    background-color: #c6c6c6;
+  }
+
+.company-info h1, .company-interviews h2 {
+    color: #15242a;
+}

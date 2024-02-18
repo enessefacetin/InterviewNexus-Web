@@ -1,0 +1,19 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Use cautiously */
+  margin: 0;
+  padding: 0;
+  height: -webkit-fill-available; /* For full-height in Safari */
+}
+
+#root, .app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: -webkit-fill-available; /* For full-height in Safari */
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto; /* Allows scrolling only if necessary */
+}
