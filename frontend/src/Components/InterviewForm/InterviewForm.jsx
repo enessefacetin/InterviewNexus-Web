@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './InterviewForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Select from 'react-select';
-import { useNavigate } from 'react-router-dom';
-import API from '../../Api/axios';
 
-const InterviewForm = ({ onSubmit, companies, professions }) => {
-  const navigate = useNavigate();
+const InterviewForm = ({ onSubmit, companies, professions, initialData }) => {
   const [formData, setFormData] = useState({
     companyId: '', // Expecting an ID
     professionId: '', // Expecting an ID
@@ -22,6 +19,37 @@ const InterviewForm = ({ onSubmit, companies, professions }) => {
     { value: 'HR', label: 'İnsan Kaynakları' },
     { value: 'TECHNICAL', label: 'Teknik' }
   ];
+
+  function convertDateToISO(dateStr) {
+    const parts = dateStr.split('-');
+    if (parts.length === 3) {
+      // Reorder the date parts to match ISO 8601 format (YYYY-MM-DD)
+      return `${parts[2]}-${parts[1]}-${parts[0]}`;
+    }
+    return dateStr; // Return the original string if it's not in the expected format
+  }
+
+  useEffect(() => {
+    if (initialData) {
+      console.log(initialData)
+      const selectedCompany = companies.find(company => company.label === initialData.companyName);
+      const selectedProfession = professions.find(profession => profession.label === initialData.professionName);
+      console.log(selectedCompany)
+      setFormData({
+        companyId: selectedCompany ? selectedCompany.value : '',
+      professionId: selectedProfession ? selectedProfession.value : '',
+      type: initialData.type || '',
+      score: initialData.score ? initialData.score.toString() : '', // Convert score to string and ensure it's not null
+      opinion: initialData.opinion || '',
+      interviewDate: initialData.interviewDate ? new Date(convertDateToISO(initialData.interviewDate)) : new Date(),
+      questions: initialData.questions && initialData.questions.length > 0 ? initialData.questions.map(q => ({
+        content: q.content || '', // Ensure content and answer are not null
+        answer: q.answer || ''
+      })) : [{ content: '', answer: '' }]
+      });
+    }
+  }, [initialData]);
+
   
   const handleChange = (e) => {
     console.log(e.target.name, e.target.value)
@@ -91,18 +119,7 @@ const InterviewForm = ({ onSubmit, companies, professions }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      console.log('Form Data:', formData);
-      const response = await API.post('/v1/interview', formData);
-      console.log('Interview added successfully:', response.data);
-
-      navigate('/');
-
-    } catch (error) {
-      console.error('Error adding interview:', error.response ? error.response.data : error);
-      
-      alert('Failed to add interview');
-    }
+    onSubmit(formData);
   };
   
 
@@ -116,6 +133,7 @@ const InterviewForm = ({ onSubmit, companies, professions }) => {
         onChange={handleCompanyChange}
         getOptionLabel={(option) => option.label}
         getOptionValue={(option) => option.value}
+        value={companies.find(company => company.value === formData.companyId) || ''}
         required
       />
 
@@ -125,6 +143,7 @@ const InterviewForm = ({ onSubmit, companies, professions }) => {
         onChange={handleProfessionChange}
         getOptionLabel={(option) => option.label}
         getOptionValue={(option) => option.value}
+        value={professions.find(profession => profession.value === formData.professionId) || ''}
         required
       />
 
@@ -136,8 +155,21 @@ const InterviewForm = ({ onSubmit, companies, professions }) => {
         required 
       />
 
+    <div className="score-slider">
       <label htmlFor="score">Score:</label>
-      <input type="number" id="score" name="score" value={formData.score} onChange={handleChange} min="0" max="5" required />
+      <input
+        type="range"
+        id="score"
+        name="score"
+        min="0"
+        max="5"
+        value={formData.score}
+        onChange={handleChange}
+        className="slider"
+        required
+      />
+      <span>{formData.score}</span>
+    </div>
 
       <label htmlFor="opinion">Opinion:</label>
       <textarea id="opinion" name="opinion" value={formData.opinion} onChange={handleChange} required />

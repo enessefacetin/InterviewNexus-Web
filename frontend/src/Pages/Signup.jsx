@@ -61,7 +61,7 @@ const Signup = () => {
       return;
     }
     try {
-      await API.post('/auth/signup', {
+      await API.post('/v1/auth/register', {
         name: userData.name,
         email: userData.email,
         password: userData.password,

@@ -12,6 +12,9 @@ import InterviewDetail from './Pages/InterviewDetail';
 import CompanyDetail from './Pages/CompanyDetail';
 import ProfessionDetail from './Pages/ProfessionDetail';
 import AddInterview from './Pages/AddInterview';
+import Profile from './Pages/Profile';
+import EditInterview from './Pages/EditInterview';
+import Admin from './Pages/Admin';
 
 
 
@@ -37,6 +40,13 @@ function App() {
           <Route path="/profession/:id" element={<ProfessionDetail />} />
 
           <Route path="/add-interview" element={<AddInterview />} />
+
+          <Route path="/profile" element={<Profile />} />
+
+          <Route path="/edit-interview/:id" element={<EditInterview />} />
+
+          <Route path="/admin" element={<Admin />} />
+
 
 
 
